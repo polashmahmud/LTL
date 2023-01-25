@@ -51,7 +51,7 @@
         </div>
     </div>
     <livewire:backend.datatable
-        model="App\Models\User"
+        model="User"
         exclude="password,remember_token"
         paginate="10"
     />

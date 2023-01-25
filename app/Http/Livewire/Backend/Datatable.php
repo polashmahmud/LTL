@@ -16,6 +16,8 @@ class Datatable extends Component
     public $exclude;
     public $paginate;
     public $checked = [];
+    public $selectPage = false;
+    public $selectAll = false;
     public $query;
 
     /**
@@ -24,7 +26,7 @@ class Datatable extends Component
      */
     public function mount($model, $exclude = '', $paginate = 15)
     {
-        $this->model = $model;
+        $this->model = 'App\\Models\\' . $model;
         $this->exclude = explode(',', $exclude);
         $this->paginate = $paginate;
         $this->columns = $this->columns();
@@ -51,6 +53,28 @@ class Datatable extends Component
     public function isChecked($record)
     {
         return in_array($record->id, $this->checked);
+    }
+
+    public function updatedSelectPage($value)
+    {
+        if ($value) {
+            $this->checked = $this->recores()->pluck('id')->map(fn ($id) => (string) $id)->toArray();
+        } else {
+            $this->checked = [];
+        }
+    }
+
+    public function selectAll()
+    {
+        $this->selectAll = true;
+        $this->checked = $this->builder()->get()->pluck('id')->map(fn ($id) => (string) $id)->toArray();
+    }
+
+    public function clearAll()
+    {
+        $this->checked = [];
+        $this->selectPage = false;
+        $this->selectAll = false;
     }
 
     public function deleteChecked()

@@ -4,35 +4,59 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between items-center">
-                        <h3 class="card-title">Users</h3>
-                        @if(count($checked) > 0)
-                        <div class="d-flex align-items-center space-x-1">
-                            <button class="btn btn-white btn-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none"
-                                                                                                                            d="M0 0h24v24H0z"
-                                                                                                                            fill="none"/><path
-                                        d="M14 3v4a1 1 0 0 0 1 1h4"/><path
-                                        d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><line x1="12" y1="11" x2="12"
-                                                                                                                          y2="17"/><polyline
-                                        points="9 14 12 17 15 14"/></svg>
-                                Export ({{ count($checked) }})
-                            </button>
-
-                            <button class="btn btn-white btn-sm" wire:click="deleteChecked">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                    <line x1="4" y1="7" x2="20" y2="7"/>
-                                    <line x1="10" y1="11" x2="10" y2="17"/>
-                                    <line x1="14" y1="11" x2="14" y2="17"/>
-                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
-                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
-                                </svg>
-                                Delete ({{ count($checked) }})
-                            </button>
+                        <div>
+                            <h3 class="card-title">Users</h3>
+                            <div class="text-muted">
+                                @if($selectPage)
+                                    @if($selectAll)
+                                        You have selected <strong>{{ count($checked) }}</strong> records.
+                                        <a class="alert-link" wire:click="clearAll" href="#">Clear</a>
+                                    @else
+                                        You have selected <strong>{{ count($checked) }}</strong> records, Do you want to
+                                        select all <strong>{{ $this->recores()->total() }}</strong> records?
+                                        <a wire:click="selectAll" href="#" class="alert-link">Click here to Select
+                                            All</a>
+                                    @endif
+                                @endif
+                            </div>
                         </div>
+
+                        @if(count($checked) > 0)
+                            <div class="d-flex align-items-center space-x-1">
+                                <button class="btn btn-white btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                         viewBox="0 0 24 24" stroke-width="2"
+                                         stroke="currentColor" fill="none" stroke-linecap="round"
+                                         stroke-linejoin="round">
+                                        <path stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"/>
+                                        <path
+                                            d="M14 3v4a1 1 0 0 0 1 1h4"/>
+                                        <path
+                                            d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/>
+                                        <line x1="12" y1="11" x2="12"
+                                              y2="17"/>
+                                        <polyline
+                                            points="9 14 12 17 15 14"/>
+                                    </svg>
+                                    Export ({{ count($checked) }})
+                                </button>
+
+                                <button class="btn btn-white btn-sm" wire:click="deleteChecked">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                         stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <line x1="4" y1="7" x2="20" y2="7"/>
+                                        <line x1="10" y1="11" x2="10" y2="17"/>
+                                        <line x1="14" y1="11" x2="14" y2="17"/>
+                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
+                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
+                                    </svg>
+                                    Delete ({{ count($checked) }})
+                                </button>
+                            </div>
                         @endif
                     </div>
                     <div class="card-body border-bottom py-3">
@@ -70,7 +94,8 @@
                             <thead>
                             <tr>
                                 <th class="w-1">
-                                    <input class="form-check-input m-0 align-middle" type="checkbox">
+                                    <input wire:model="selectPage" class="form-check-input m-0 align-middle"
+                                           type="checkbox">
                                 </th>
                                 @foreach($columns as $column)
                                     <th>{{ $column }}</th>
@@ -93,7 +118,9 @@
                     </div>
 
                     <div class="card-footer d-flex align-items-center">
-                        <p class="m-0 text-muted">Showing <span>{{ $this->recores()->currentPage() }}</span> to <span>{{ $this->recores()->lastPage() }}</span> of <span>{{ $this->recores()->total() }}</span>
+                        <p class="m-0 text-muted">Showing <span>{{ $this->recores()->currentPage() }}</span> to
+                            <span>{{ $this->recores()->lastPage() }}</span> of
+                            <span>{{ $this->recores()->total() }}</span>
                             entries</p>
                         <div class="m-0 ms-auto">
                             {{ $this->recores()->links() }}
