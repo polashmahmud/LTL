@@ -52,8 +52,15 @@
                             <div class="ms-auto text-muted">
                                 Search:
                                 <div class="ms-2 d-inline-block">
-                                    <input type="search" class="form-control form-control-sm"
-                                           aria-label="Search invoice">
+                                    <input
+                                        wire:model="query"
+                                        type="search"
+                                        name="query"
+                                        id="query"
+                                        class="form-control form-control-sm"
+                                        aria-label="Search something"
+                                        placeholder="Search ..."
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -86,7 +93,7 @@
                     </div>
 
                     <div class="card-footer d-flex align-items-center">
-                        <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span>
+                        <p class="m-0 text-muted">Showing <span>{{ $this->recores()->currentPage() }}</span> to <span>{{ $this->recores()->lastPage() }}</span> of <span>{{ $this->recores()->total() }}</span>
                             entries</p>
                         <div class="m-0 ms-auto">
                             {{ $this->recores()->links() }}

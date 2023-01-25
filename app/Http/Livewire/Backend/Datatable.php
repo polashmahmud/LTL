@@ -16,6 +16,7 @@ class Datatable extends Component
     public $exclude;
     public $paginate;
     public $checked = [];
+    public $query;
 
     /**
      * @param $model
@@ -39,7 +40,7 @@ class Datatable extends Component
 
     public function builder()
     {
-        return $this->model::query();
+        return new $this->model;
     }
 
     protected function checkRecords()
@@ -58,9 +59,19 @@ class Datatable extends Component
         $this->checked = [];
     }
 
+    public function updatingQuery(): void
+    {
+        $this->gotoPage(1);
+    }
+
     public function recores()
     {
-        return $this->builder()->paginate($this->paginate);
+        $builder = $this->builder();
+        if ($this->query) {
+            $builder = $builder->search($this->query);
+        }
+
+        return $builder->paginate($this->paginate);
     }
 
     public function render()
