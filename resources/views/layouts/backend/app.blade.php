@@ -18,6 +18,7 @@
 
     <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
 <div id="app" class="wrapper">
@@ -32,5 +33,6 @@
 <!-- Tabler Core -->
 <script src="{{ asset('backend/dist/js/tabler.min.js') }}"></script>
 <script src="{{ asset('backend/dist/js/demo.min.js') }}"></script>
+@livewireScripts
 </body>
 </html>
