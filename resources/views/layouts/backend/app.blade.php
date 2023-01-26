@@ -18,6 +18,7 @@
 
     <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('styles')
     @livewireStyles
 </head>
 <body>
@@ -26,6 +27,7 @@
     @include('layouts.backend.partials.header')
 
     <div class="page-wrapper">
+        @include('layouts.backend.partials.flash-message')
         @yield('content')
         @include('layouts.backend.partials.footer')
     </div>
@@ -33,6 +35,7 @@
 <!-- Tabler Core -->
 <script src="{{ asset('backend/dist/js/tabler.min.js') }}"></script>
 <script src="{{ asset('backend/dist/js/demo.min.js') }}"></script>
+@stack('scripts')
 @livewireScripts
 </body>
 </html>
