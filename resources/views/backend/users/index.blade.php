@@ -53,6 +53,5 @@
     <livewire:backend.datatable
         model="User"
         exclude="password,remember_token"
-        paginate="10"
     />
 @endsection
