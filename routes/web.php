@@ -25,6 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['as' => 'app.', 'prefix' => 'app', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', DashboardController::class);
-    Route::resource('roles', RoleController::class);
+    Route::resource('roles', RoleController::class)->except('show');
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 });

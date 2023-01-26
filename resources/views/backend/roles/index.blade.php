@@ -11,11 +11,9 @@
             ]"
         >
             <div class="btn-list">
-                <a href="#" class="btn d-none d-md-inline-flex">
-                    Edit
-                </a>
-                <a href="#" class="btn btn-primary">
-                    Publish
+                <a href="{{ route('app.roles.create') }}" class="btn d-none d-md-inline-flex">
+                    <x-tabler icon="plus" />
+                    Add New Role
                 </a>
             </div>
         </x-backend.page-headers>
@@ -76,34 +74,22 @@
                                         </td>
                                         <td>{{ $role->created_at->diffForHumans() }}</td>
                                         <td class="text-end">
-                                            <a href="#" class="btn btn-twitter btn-sm">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                     stroke="currentColor" fill="none" stroke-linecap="round"
-                                                     stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <path
-                                                        d="M12 15l8.385 -8.415a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3z"/>
-                                                    <path d="M16 5l3 3"/>
-                                                    <path
-                                                        d="M9 7.07a7.002 7.002 0 0 0 1 13.93a7.002 7.002 0 0 0 6.929 -5.999"/>
-                                                </svg>
+                                            <a href="{{ route('app.roles.edit', $role) }}" class="btn btn-primary btn-sm">
+                                                <x-tabler icon="edit" />
                                                 Edit
                                             </a>
-                                            <a href="#" class="btn btn-google btn-sm">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                     stroke="currentColor" fill="none" stroke-linecap="round"
-                                                     stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                                    <line x1="4" y1="7" x2="20" y2="7"/>
-                                                    <line x1="10" y1="11" x2="10" y2="17"/>
-                                                    <line x1="14" y1="11" x2="14" y2="17"/>
-                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
-                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
-                                                </svg>
+                                            <a class="btn btn-danger btn-sm" href="#"
+                                               onclick="event.preventDefault();
+                                                     document.getElementById('delete-role-{{$role->id}}').submit();">
+                                                <x-tabler icon="trash" />
                                                 Delete
                                             </a>
+
+                                            <form id="delete-role-{{$role->id}}" action="{{ route('app.roles.destroy', $role->id) }}" method="POST" class="d-none">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+
                                         </td>
                                     </tr>
                                 @endforeach

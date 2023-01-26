@@ -21,14 +21,12 @@ class RoleSeeder extends Seeder
         Role::updateOrCreate([
             'name' => 'Admin',
             'slug' => 'admin',
-            'description' => 'Admin role',
             'deletable' => false,
         ])->permissions()->sync($adminPermissions->pluck('id'));
 
         Role::updateOrCreate([
             'name' => 'User',
             'slug' => 'user',
-            'description' => 'User role',
             'deletable' => false,
         ]);
     }
