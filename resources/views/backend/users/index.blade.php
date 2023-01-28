@@ -54,4 +54,5 @@
         model="User"
         exclude="password,remember_token"
     />
+
 @endsection
