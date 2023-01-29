@@ -16,6 +16,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        // Dashboard
         $moduleAppDashboard = Module::updateOrCreate(['name' => 'Admin Dashboard']);
         Permission::updateOrCreate([
             'module_id' => $moduleAppDashboard->id,
@@ -23,6 +24,7 @@ class PermissionSeeder extends Seeder
             'slug' => 'app.dashboard',
         ]);
 
+        // Role
         $moduleAppRole = Module::updateOrCreate(['name' => 'Role Management']);
         Permission::updateOrCreate([
             'module_id' => $moduleAppRole->id,
@@ -45,6 +47,7 @@ class PermissionSeeder extends Seeder
             'slug' => 'app.roles.destroy',
         ]);
 
+        // User
         $moduleAppUser = Module::updateOrCreate(['name' => 'User Management']);
         Permission::updateOrCreate([
             'module_id' => $moduleAppUser->id,
@@ -65,6 +68,29 @@ class PermissionSeeder extends Seeder
             'module_id' => $moduleAppUser->id,
             'name' => 'Delete User',
             'slug' => 'app.users.destroy',
+        ]);
+
+        // Menu
+        $moduleAppMenu = Module::updateOrCreate(['name' => 'Menu Management']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Access Menu',
+            'slug' => 'app.menus.index',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Create Menu',
+            'slug' => 'app.menus.create',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Edit Menu',
+            'slug' => 'app.menus.edit',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Delete Menu',
+            'slug' => 'app.menus.destroy',
         ]);
     }
 }
