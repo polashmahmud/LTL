@@ -8,6 +8,7 @@ use App\Http\Requests\Backend\UpdateRoleRequest;
 use App\Models\Module;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
@@ -18,6 +19,8 @@ class RoleController extends Controller
      */
     public function index()
     {
+        Gate::authorize('app.roles.index');
+
         $roles = Role::all();
         return view('backend.roles.index', compact('roles'));
     }
@@ -29,6 +32,8 @@ class RoleController extends Controller
      */
     public function create()
     {
+        Gate::authorize('app.roles.create');
+
         $modules = Module::with('permissions')->get();
 
         return view('backend.roles.form', [
@@ -44,6 +49,8 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
+        Gate::authorize('app.roles.create');
+
         $role = Role::create($request->only('name'));
 
         $role->permissions()->sync($request->permissions);
@@ -70,6 +77,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        Gate::authorize('app.roles.edit');
+
         $modules = Module::with('permissions')->get();
 
         return view('backend.roles.form', [
@@ -87,6 +96,8 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
+        Gate::authorize('app.roles.edit');
+
         $role->update($request->only('name'));
 
         $role->permissions()->sync($request->permissions);
@@ -102,6 +113,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        Gate::authorize('app.roles.destroy');
+
         if (!$role->deletable) {
             return redirect()->route('app.roles.index')->with('error', 'Role cannot be deleted');
         }
