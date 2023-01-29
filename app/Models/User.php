@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function hasPermission(Permission $permission)
+    {
+        return $this->role->permissions->contains($permission);
+    }
+
     public function toSearchableArray()
     {
         $array = ['id' => $this->id, 'name' => $this->name, 'email' => $this->email];

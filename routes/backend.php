@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', DashboardController::class);
+Route::resource('roles', RoleController::class)->except('show');
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
