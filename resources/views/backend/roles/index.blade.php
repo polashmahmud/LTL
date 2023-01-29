@@ -69,10 +69,7 @@
 {{--                                                Delete--}}
 {{--                                            </a>--}}
 
-{{--                                            <form id="delete-role-{{$role->id}}" action="{{ route('app.roles.destroy', $role->id) }}" method="POST" class="d-none">--}}
-{{--                                                @csrf--}}
-{{--                                                @method('DELETE')--}}
-{{--                                            </form>--}}
+
 
 {{--                                        </td>--}}
 {{--                                    </tr>--}}
