@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreMenuBuilderRequest;
 use App\Models\Menu;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -70,12 +71,16 @@ class MenuBuilderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Menu $menu, MenuItem $builder)
     {
         Gate::authorize('app.menus.builder.edit');
-        //
+
+        return view('backend.menus.builder.form', [
+            'menu' => $menu,
+            'item' => $builder,
+        ]);
     }
 
     /**

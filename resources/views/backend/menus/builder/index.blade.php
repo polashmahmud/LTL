@@ -30,8 +30,8 @@
                         <div class="card-body border-bottom py-3">
                             <div class="dd">
                                 <ol>
-                                    @forelse($menu->items as $menu)
-                                        {{ $menu->title }}
+                                    @forelse($menu->items as $item)
+                                        <li>{{ $item->title }} <a href="{{ route('app.menus.builder.edit', [$menu, $item]) }}">Edit</a></li>
                                     @empty
                                         <p>Menu item not found!</p>
                                     @endforelse
