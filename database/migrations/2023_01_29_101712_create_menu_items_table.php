@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->integer('order')->nullable();
             $table->string('title')->nullable();
-            $table->string('divider_title')->nullable();
             $table->string('url')->nullable();
             $table->string('target')->default('_self');
             $table->string('icon_class')->nullable();

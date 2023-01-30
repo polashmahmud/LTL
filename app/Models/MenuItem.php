@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class MenuItem extends Model
 {
@@ -15,13 +16,12 @@ class MenuItem extends Model
         'parent_id',
         'order',
         'title',
-        'divider_title',
         'url',
         'target',
         'icon_class',
     ];
 
-    public function menu(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function menu(): BelongsTo
     {
         return $this->belongsTo(Menu::class);
     }

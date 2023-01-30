@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\MenuBuilderController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
@@ -21,3 +22,6 @@ Route::get('/dashboard', DashboardController::class);
 Route::resource('roles', RoleController::class)->except('show');
 Route::resource('/users', UserController::class);
 Route::resource('/menus', MenuController::class)->except('show');
+Route::group(['as' => 'menus.', 'prefix' => 'menus/{menu}'], function () {
+   Route::resource('builder', MenuBuilderController::class);
+});

@@ -1,5 +1,5 @@
 <div class="d-flex space-x-1">
-    <a href="{{ route('app.roles.edit', $row) }}" class="btn btn-sm btn-success">Builder</a>
+    <a href="{{ route('app.menus.builder.index', $row) }}" class="btn btn-sm btn-success">Builder</a>
     <a href="{{ route('app.roles.edit', $row) }}" class="btn btn-sm">Edit</a>
     <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-simple-{{ $row->id }}">
         Delete
