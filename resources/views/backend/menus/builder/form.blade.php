@@ -43,12 +43,12 @@
                                     <div>
                                         <label class="form-check form-check-inline">
                                             <input class="form-check-input" x-on:click="item = true" name="type"
-                                                   value="item" type="radio" @if($item->type == 'item') checked @endif>
+                                                   value="item" type="radio" @isset($item) @if($item->type == 'item') checked @endif @endisset>
                                             <span class="form-check-label">Item</span>
                                         </label>
                                         <label class="form-check form-check-inline">
                                             <input class="form-check-input" x-on:click="item = false" name="type"
-                                                   value="divider" type="radio" @if($item->type == 'divider') checked @endif>
+                                                   value="divider" type="radio" @isset($item) @if($item->type == 'divider') checked @endif @endisset>
                                             <span class="form-check-label">Divider</span>
                                         </label>
                                     </div>

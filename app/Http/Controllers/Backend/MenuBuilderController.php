@@ -92,6 +92,7 @@ class MenuBuilderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd('update');
         Gate::authorize('app.menus.builder.edit');
         //
     }
@@ -104,6 +105,7 @@ class MenuBuilderController extends Controller
      */
     public function destroy($id)
     {
+        dd('destroy');
         Gate::authorize('app.menus.builder.destroy');
         //
     }

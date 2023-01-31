@@ -46,12 +46,12 @@
                                                         <i class="fas fa-trash-alt"></i>
                                                         <span>Delete</span>
                                                     </button>
-                                                    <form id="delete-form-{{ $item->id }}" action=""
+                                                    <form id="delete-form-{{ $item->id }}" action="{{ route('app.menus.builder.destroy', [$menu, $item]) }}"
                                                           method="POST" style="display: none;">
                                                         @csrf()
                                                         @method('DELETE')
                                                     </form>
-                                                    <a class="btn btn-sm btn-primary float-right edit" href="">
+                                                    <a class="btn btn-sm btn-primary float-right edit" href="{{ route('app.menus.builder.edit', [$menu, $item]) }}">
                                                         <i class="fas fa-edit"></i>
                                                         <span>Edit</span>
                                                     </a>
