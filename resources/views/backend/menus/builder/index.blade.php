@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body border-bottom py-3">
                             <div class="dd menu-builder">
-                                <x-backend.menu-builder :menu="$menu->items" />
+                                <x-backend.menu-builder :menu="$menu" />
                             </div>
                         </div>
                     </div>

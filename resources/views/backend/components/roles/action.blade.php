@@ -3,7 +3,6 @@
     <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-simple-{{ $row->id }}">
         Delete
     </a>
-
 </div>
 
 <div class="modal modal-blur fade" id="modal-simple-{{ $row->id }}" tabindex="-1" role="dialog" aria-hidden="true">
