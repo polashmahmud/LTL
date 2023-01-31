@@ -23,5 +23,6 @@ Route::resource('roles', RoleController::class)->except('show');
 Route::resource('/users', UserController::class);
 Route::resource('/menus', MenuController::class)->except('show');
 Route::group(['as' => 'menus.', 'prefix' => 'menus/{menu}'], function () {
-   Route::resource('builder', MenuBuilderController::class);
+    Route::resource('builder', MenuBuilderController::class);
+    Route::post('builder/move', [MenuBuilderController::class, 'move'])->name('builder.move');
 });

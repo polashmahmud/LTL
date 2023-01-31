@@ -107,4 +107,39 @@ class MenuBuilderController extends Controller
         Gate::authorize('app.menus.builder.destroy');
         //
     }
+
+    public function move(Request $request, Menu $menu)
+    {
+        Gate::authorize('app.menus.builder.edit');
+
+        $items = json_decode($request->get('order'));
+
+        foreach ($items as $index => $item) {
+            $menuItem = MenuItem::findOrFail($item->id);
+            $menuItem->update([
+                'order' => $index + 1,
+                'parent_id' => null,
+            ]);
+
+            if (isset($item->children)) {
+                foreach ($item->children as $childIndex => $child) {
+                    $childItem = MenuItem::findOrFail($child->id);
+                    $childItem->update([
+                        'order' => $childIndex + 1,
+                        'parent_id' => $item->id,
+                    ]);
+                }
+            }
+        }
+
+//        $item = MenuItem::findOrFail($request->get('id'));
+//        $item->update([
+//            'parent_id' => $request->get('parent_id'),
+//            'order' => $request->get('order'),
+//        ]);
+//
+//        return response()->json([
+//            'message' => 'Menu item moved successfully.',
+//        ]);
+    }
 }

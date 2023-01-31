@@ -17,7 +17,7 @@
     <link href="{{ asset('backend/dist/css/demo.min.css') }}" rel="stylesheet"/>
 
     <!-- Scripts -->
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
     @livewireStyles
 </head>
@@ -35,6 +35,7 @@
 <!-- Tabler Core -->
 <script src="{{ asset('backend/dist/js/tabler.min.js') }}"></script>
 <script src="{{ asset('backend/dist/js/demo.min.js') }}"></script>
+
 @stack('scripts')
 @livewireScripts
 </body>
