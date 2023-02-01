@@ -48,6 +48,7 @@
                                 @error('permissions')
                                 <div class="text-danger text-center mb-3">{{ $message }}</div>
                                 @enderror
+
                                 @forelse($modules->chunk(2) as $key => $chunks)
                                     <div class="row row-deck">
                                         @foreach($chunks as $k => $module)
