@@ -1,3 +1,4 @@
+{{ Request::is() }}
 <ul class="navbar-nav pt-lg-3">
     @foreach($menus as $menu)
         @if($menu->type == 'divider')
@@ -10,7 +11,7 @@
             </li>
         @else
             @if($menu->children->isEmpty())
-                <li class="nav-item">
+                <li class="nav-item {{ request::is(ltrim($menu->url, '/').'*') ? 'active' : '' }}">
                     <a class="nav-link" target="{{ $menu->target }}" href="{{ $menu->url }}">
                         <x-tabler :icon="$menu->icon_class"/>
                         <span class="nav-link-title">
@@ -19,6 +20,7 @@
                     </a>
                 </li>
             @else
+                {{ Request::path() }}
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
