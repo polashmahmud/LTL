@@ -100,5 +100,15 @@ class MenuSeeder extends Seeder
             'target'     => '_self',
             'icon_class' => null,
         ]);
+
+        $menu->items()->create([
+            'type'       => 'item',
+            'parent_id'  => 7,
+            'order'      => 8,
+            'title'      => 'Menus',
+            'url'        => '/app/menus',
+            'target'     => '_self',
+            'icon_class' => null,
+        ]);
     }
 }
