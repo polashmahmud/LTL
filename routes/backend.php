@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/dashboard', DashboardController::class);
+
 Route::resource('roles', RoleController::class)->except('show');
+
 Route::resource('users', UserController::class);
+
+// Menus
 Route::resource('menus', MenuController::class)->except('show');
 Route::group(['as' => 'menus.', 'prefix' => 'menus/{menu}'], function () {
     Route::resource('builder', MenuBuilderController::class);
