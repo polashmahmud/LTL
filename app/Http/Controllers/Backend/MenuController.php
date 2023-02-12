@@ -17,11 +17,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        Gate::authorize('app.menus.index');
+        Gate::authorize('menus.index');
 
         $menus = Menu::latest('id')->get();
 
-        return view('backend.menus.index', compact('menus'));
+        return view('settings.menus.index', compact('menus'));
     }
 
     /**
@@ -31,9 +31,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        Gate::authorize('app.menus.create');
+        Gate::authorize('menus.create');
 
-        return view('backend.menus.form');
+        return view('settings.menus.form');
     }
 
     /**
@@ -44,7 +44,7 @@ class MenuController extends Controller
      */
     public function store(StoreMenuRequest $request)
     {
-        Gate::authorize('app.menus.create');
+        Gate::authorize('menus.create');
 
         Menu::create($request->validated());
 
@@ -59,7 +59,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        Gate::authorize('app.menus.index');
+        Gate::authorize('menus.index');
         //
     }
 
@@ -71,7 +71,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        Gate::authorize('app.menus.edit');
+        Gate::authorize('menus.edit');
         //
     }
 
@@ -84,7 +84,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        Gate::authorize('app.menus.edit');
+        Gate::authorize('menus.edit');
         //
     }
 
@@ -96,7 +96,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        Gate::authorize('app.menus.destroy');
+        Gate::authorize('menus.destroy');
         //
     }
 }

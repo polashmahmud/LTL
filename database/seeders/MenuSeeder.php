@@ -26,7 +26,7 @@ class MenuSeeder extends Seeder
             'parent_id'  => null,
             'order'      => 1,
             'title'      => 'Dashboard',
-            'url'        => '/app/dashboard',
+            'url'        => '/dashboard',
             'target'     => '_self',
             'icon_class' => 'layout-dashboard',
         ]);
@@ -56,7 +56,7 @@ class MenuSeeder extends Seeder
             'parent_id'  => 3,
             'order'      => 4,
             'title'      => 'All Users',
-            'url'        => '/app/users',
+            'url'        => '/users',
             'target'     => '_self',
             'icon_class' => null,
         ]);
@@ -66,7 +66,7 @@ class MenuSeeder extends Seeder
             'parent_id'  => 3,
             'order'      => 5,
             'title'      => 'Create User',
-            'url'        => '/app/users/create',
+            'url'        => '/users/create',
             'target'     => '_self',
             'icon_class' => null,
         ]);
@@ -96,7 +96,7 @@ class MenuSeeder extends Seeder
             'parent_id'  => 7,
             'order'      => 8,
             'title'      => 'General Settings',
-            'url'        => '/app/settings/general',
+            'url'        => '/settings/general',
             'target'     => '_self',
             'icon_class' => null,
         ]);
@@ -106,7 +106,17 @@ class MenuSeeder extends Seeder
             'parent_id'  => 7,
             'order'      => 8,
             'title'      => 'Menus',
-            'url'        => '/app/menus',
+            'url'        => '/menus',
+            'target'     => '_self',
+            'icon_class' => null,
+        ]);
+
+        $menu->items()->create([
+            'type'       => 'item',
+            'parent_id'  => 7,
+            'order'      => 8,
+            'title'      => 'Roles',
+            'url'        => '/roles',
             'target'     => '_self',
             'icon_class' => null,
         ]);
