@@ -11,7 +11,7 @@
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.roles.index') }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('roles.index') }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="arrow-back"/>
                     Back
                 </a>
@@ -23,7 +23,7 @@
             <div class="row row-cards">
                 <div class="col-12">
                     <form method="POST"
-                          action="{{ isset($role) ? route('app.roles.update', $role) : route('app.roles.store') }}">
+                          action="{{ isset($role) ? route('roles.update', $role) : route('roles.store') }}">
                         @csrf
                         @if(isset($role))
                             @method('PUT')

@@ -36,7 +36,7 @@ class RoleController extends Controller
 
         $modules = Module::with('permissions')->get();
 
-        return view('backend.roles.form', [
+        return view('settings.roles.form', [
             'modules' => $modules
         ]);
     }
@@ -81,7 +81,7 @@ class RoleController extends Controller
 
         $modules = Module::with('permissions')->get();
 
-        return view('backend.roles.form', [
+        return view('settings.roles.form', [
             'modules' => $modules,
             'role' => $role
         ]);
