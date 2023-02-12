@@ -13,7 +13,7 @@
             @if($menu->children->isEmpty())
                 <li class="nav-item {{ request::is(ltrim($menu->url, '/').'*') ? 'active' : '' }}">
                     <a class="nav-link" target="{{ $menu->target }}" href="{{ $menu->url }}">
-                        <x-tabler :icon="$menu->icon_class"/>
+                        <x-tabler :icon="$menu->icon_class" w="20" h="20"/>
                         <span class="nav-link-title">
                     {{ $menu->title }}
                   </span>
@@ -31,7 +31,7 @@
                         aria-expanded="false"
                     >
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <x-tabler :icon="$menu->icon_class"/>
+                    <x-tabler :icon="$menu->icon_class" w="20" h="20"/>
                   </span>
                     <span class="nav-link-title">
                         {{ $menu->title }}

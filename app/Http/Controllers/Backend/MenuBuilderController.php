@@ -64,7 +64,6 @@ class MenuBuilderController extends Controller
     public function show($id)
     {
         Gate::authorize('app.menus.builder.index');
-        //
     }
 
     /**
@@ -101,13 +100,16 @@ class MenuBuilderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy($menuId, MenuItem $builder)
     {
-        dd('destroy');
         Gate::authorize('app.menus.builder.destroy');
-        //
+
+        $builder->delete();
+
+        return redirect()->back()
+            ->with('success', 'Menu item deleted successfully.');
     }
 
     public function move(Request $request, Menu $menu)
@@ -133,15 +135,5 @@ class MenuBuilderController extends Controller
                 }
             }
         }
-
-//        $item = MenuItem::findOrFail($request->get('id'));
-//        $item->update([
-//            'parent_id' => $request->get('parent_id'),
-//            'order' => $request->get('order'),
-//        ]);
-//
-//        return response()->json([
-//            'message' => 'Menu item moved successfully.',
-//        ]);
     }
 }
