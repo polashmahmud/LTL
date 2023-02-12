@@ -11,7 +11,7 @@
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.roles.create') }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('roles.create') }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="plus" />
                     Add New Role
                 </a>
@@ -27,7 +27,7 @@
                             <h3 class="card-title">Roles</h3>
                         </div>
                         <div class="card-body border-bottom py-3">
-                            <livewire:backend.role-data-table />
+                            <livewire:settings.role-data-table />
                         </div>
                     </div>
                 </div>

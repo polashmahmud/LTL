@@ -11,19 +11,7 @@
                     <h2 class="h2 text-center mb-4">Login to your account</h2>
                     <form action="{{ route('login') }}" method="POST" autocomplete="off" novalidate>
                         @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input id="email" type="email"
-                                   class="form-control @error('email') is-invalid @enderror" name="email"
-                                   value="{{ old('email') }}" placeholder="your@email.com" required autocomplete="email" autofocus>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-
-                        </div>
+                        <x-form.input label="Email address" name="email" type="email" placeholder="your@email.com" />
                         <div class="mb-2">
                             <label class="form-label">
                                 Password

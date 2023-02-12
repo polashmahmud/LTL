@@ -1,5 +1,5 @@
 <div class="d-flex space-x-1">
-    <a href="{{ route('app.roles.edit', $row) }}" class="btn btn-sm">Edit</a>
+    <a href="{{ route('roles.edit', $row) }}" class="btn btn-sm">Edit</a>
     <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-simple-{{ $row->id }}">
         Delete
     </a>
@@ -26,7 +26,7 @@
                             <a href="#" onclick="event.preventDefault();document.getElementById('delete-role-{{$row->id}}').submit();" class="btn btn-danger w-100" data-bs-dismiss="modal">
                                 Delete
                             </a>
-                            <form id="delete-role-{{$row->id}}" action="{{ route('app.roles.destroy', $row->id) }}" method="POST" class="d-none">
+                            <form id="delete-role-{{$row->id}}" action="{{ route('roles.destroy', $row->id) }}" method="POST" class="d-none">
                                 @csrf
                                 @method('DELETE')
                             </form>

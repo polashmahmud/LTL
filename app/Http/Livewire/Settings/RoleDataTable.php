@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\Backend;
+namespace App\Http\Livewire\Settings;
 
-use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use App\Models\Role;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class RoleDataTable extends DataTableComponent
 {
     protected $model = Role::class;
-
 
     public function configure(): void
     {
@@ -68,10 +67,10 @@ class RoleDataTable extends DataTableComponent
             Column::make("Deletable")
                 ->sortable()
                 ->format(fn($value, $row, Column $column) => $row->deletable ? '<span class="badge bg-blue-lt">Yes</span>' : '<span class="badge bg-red-lt">No</span>')
-            ->html(),
+                ->html(),
             Column::make('Action')
                 ->label(function ($row, Column $column) {
-                    return view('backend.components.roles.action', ['row' => $row]);
+                    return view('settings.roles.partials.action', ['row' => $row]);
                 })
         ];
     }

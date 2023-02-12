@@ -21,7 +21,7 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppDashboard->id,
             'name' => 'Access Dashboard',
-            'slug' => 'app.dashboard',
+            'slug' => 'dashboard',
         ]);
 
         // Role
@@ -29,22 +29,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppRole->id,
             'name' => 'Access Role',
-            'slug' => 'app.roles.index',
+            'slug' => 'roles.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppRole->id,
             'name' => 'Create Role',
-            'slug' => 'app.roles.create',
+            'slug' => 'roles.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppRole->id,
             'name' => 'Edit Role',
-            'slug' => 'app.roles.edit',
+            'slug' => 'roles.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppRole->id,
             'name' => 'Delete Role',
-            'slug' => 'app.roles.destroy',
+            'slug' => 'roles.destroy',
         ]);
 
         // User
@@ -52,22 +52,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppUser->id,
             'name' => 'Access User',
-            'slug' => 'app.users.index',
+            'slug' => 'users.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppUser->id,
             'name' => 'Create User',
-            'slug' => 'app.users.create',
+            'slug' => 'users.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppUser->id,
             'name' => 'Edit User',
-            'slug' => 'app.users.edit',
+            'slug' => 'users.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppUser->id,
             'name' => 'Delete User',
-            'slug' => 'app.users.destroy',
+            'slug' => 'users.destroy',
         ]);
 
         // Menu
@@ -75,22 +75,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Access Menu',
-            'slug' => 'app.menus.index',
+            'slug' => 'menus.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Create Menu',
-            'slug' => 'app.menus.create',
+            'slug' => 'menus.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Edit Menu',
-            'slug' => 'app.menus.edit',
+            'slug' => 'menus.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Delete Menu',
-            'slug' => 'app.menus.destroy',
+            'slug' => 'menus.destroy',
         ]);
 
         // Menu items
@@ -98,22 +98,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Access Menu builder',
-            'slug' => 'app.menus.builder.index',
+            'slug' => 'menus.builder.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Create Menu builder',
-            'slug' => 'app.menus.builder.create',
+            'slug' => 'menus.builder.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Edit Menu builder',
-            'slug' => 'app.menus.builder.edit',
+            'slug' => 'menus.builder.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Delete Menu builder',
-            'slug' => 'app.menus.builder.destroy',
+            'slug' => 'menus.builder.destroy',
         ]);
     }
 }
