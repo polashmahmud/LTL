@@ -39,7 +39,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="{{ route('accounts.index') }}" class="dropdown-item">Accounts</a>
+                    <a href="{{ route('account.index') }}" class="dropdown-item">Accounts</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();

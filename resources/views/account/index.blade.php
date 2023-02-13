@@ -1,11 +1,12 @@
-@extends('accounts.layouts.default')
+@extends('account.layouts.default')
 
 @section('account-content')
     <div class="card-body">
         <h2 class="mb-4">My Account</h2>
         <h3 class="card-title">Profile Details</h3>
         <div class="row align-items-center">
-            <div class="col-auto"><span class="avatar avatar-xl" style="background-image: url(./static/avatars/000m.jpg)"></span>
+            <div class="col-auto"><span class="avatar avatar-xl"
+                                        style="background-image: url(./static/avatars/000m.jpg)"></span>
             </div>
             <div class="col-auto"><a href="#" class="btn">
                     Change avatar
@@ -49,7 +50,8 @@
             </a>
         </div>
         <h3 class="card-title mt-4">Public profile</h3>
-        <p class="card-subtitle">Making your profile public means that anyone on the Dashkit network will be able to find
+        <p class="card-subtitle">Making your profile public means that anyone on the Dashkit network will be able to
+            find
             you.</p>
         <div>
             <label class="form-check form-switch form-switch-lg">

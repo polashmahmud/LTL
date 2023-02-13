@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class NotificationController extends Controller
 {
     public function index()
     {
-        return view('account.index');
+        return view('account.notifications.index');
     }
 }
