@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Account\AccountController;
+use App\Http\Controllers\Account\EmailController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\PasswordController;
 use App\Http\Controllers\Backend\MenuBuilderController;
@@ -24,5 +25,7 @@ Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
     Route::get('/', [AccountController::class, 'index'])->name('index');
     Route::get('/password', [PasswordController::class, 'index'])->name('password.index');
     Route::post('/password', [PasswordController::class, 'store'])->name('password.store');
+    Route::get('/email', [EmailController::class, 'index'])->name('email.index');
+    Route::post('/email', [EmailController::class, 'store'])->name('email.store');
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 });
