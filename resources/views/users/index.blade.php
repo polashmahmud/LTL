@@ -11,7 +11,7 @@
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.users.create') }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('users.create') }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="plus" />
                     Add New user
                 </a>
@@ -27,7 +27,7 @@
                             <h3 class="card-title">Users</h3>
                         </div>
                         <div class="card-body border-bottom py-3">
-                            <livewire:backend.user-data-table />
+                            <livewire:users.user-data-table />
                         </div>
                     </div>
                 </div>

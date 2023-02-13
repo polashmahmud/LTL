@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-   return redirect('/dashboard');
-});
+Route::get('/', HomeController::class);
 
-Auth::routes();
+Route::get('/dashboard', DashboardController::class);
+Route::resource('users', UserController::class);
 

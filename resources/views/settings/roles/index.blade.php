@@ -27,7 +27,7 @@
                             <h3 class="card-title">Roles</h3>
                         </div>
                         <div class="card-body border-bottom py-3">
-                            <livewire:settings.role-data-table />
+                            <livewire:roles.role-data-table />
                         </div>
                     </div>
                 </div>

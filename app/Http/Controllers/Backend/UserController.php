@@ -16,9 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        Gate::authorize('app.users.index');
+        Gate::authorize('users.index');
 
-        return view('backend.users.index');
+        return view('users.index');
     }
 
     /**
@@ -28,9 +28,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        Gate::authorize('app.users.create');
+        Gate::authorize('users.create');
 
-        return view('backend.users.form');
+        return view('users.form');
     }
 
     /**
@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('app.users.create');
+        Gate::authorize('users.create');
         //
     }
 
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        Gate::authorize('app.users.index');
+        Gate::authorize('users.index');
         //
     }
 
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        Gate::authorize('app.users.edit');
+        Gate::authorize('users.edit');
         //
     }
 
@@ -78,7 +78,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        Gate::authorize('app.users.edit');
+        Gate::authorize('users.edit');
         //
     }
 
@@ -90,7 +90,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        Gate::authorize('app.users.destroy');
+        Gate::authorize('users.destroy');
         //
     }
 }
