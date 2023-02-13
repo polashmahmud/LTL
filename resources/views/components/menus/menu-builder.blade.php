@@ -2,7 +2,7 @@
     @forelse($menu->items as $item)
         <li class="dd-item my-3" data-id="{{ $item->id }}">
             <div style="text-align: end; margin-bottom: -50px; margin-right: 15px">
-                <a href="{{ route('app.menus.builder.edit', [$menu, $item]) }}" class="btn btn-sm">Edit</a>
+                <a href="{{ route('menus.builder.edit', [$menu, $item]) }}" class="btn btn-sm">Edit</a>
                 <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                    data-bs-target="#modal-danger-{{ $item->id }}">
                     Delete
@@ -38,13 +38,13 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a class="btn btn-danger w-100" href="{{ route('app.menus.builder.destroy', [$menu, $item]) }}"
+                                            <a class="btn btn-danger w-100" href="{{ route('menus.builder.destroy', [$menu, $item]) }}"
                                                onclick="event.preventDefault();
                                                      document.getElementById('delete-form-{{$item->id}}').submit();">
                                                 Delete
                                             </a>
 
-                                            <form id="delete-form-{{ $item->id }}" action="{{ route('app.menus.builder.destroy', [$menu, $item]) }}" method="POST"
+                                            <form id="delete-form-{{ $item->id }}" action="{{ route('menus.builder.destroy', [$menu, $item]) }}" method="POST"
                                                   class="d-none">
                                                 @csrf
                                                 @method('DELETE')
@@ -73,7 +73,7 @@
                     @foreach($item->children as $children)
                         <li class="dd-item" data-id="{{ $children->id }}">
                             <div style="text-align: end; margin-bottom: -50px; margin-right: 15px">
-                                <a href="{{ route('app.menus.builder.edit', [$item, $children]) }}" class="btn btn-sm">Edit</a>
+                                <a href="{{ route('menus.builder.edit', [$item, $children]) }}" class="btn btn-sm">Edit</a>
                                 <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                    data-bs-target="#modal-danger-{{ $children->id }}">
                                     Delete
@@ -109,13 +109,13 @@
                                                             </a>
                                                         </div>
                                                         <div class="col">
-                                                            <a class="btn btn-danger w-100" href="{{ route('app.menus.builder.destroy', [$item, $children]) }}"
+                                                            <a class="btn btn-danger w-100" href="{{ route('menus.builder.destroy', [$item, $children]) }}"
                                                                onclick="event.preventDefault();
                                                      document.getElementById('delete-form-{{$children->id}}').submit();">
                                                                 Delete
                                                             </a>
 
-                                                            <form id="delete-form-{{ $children->id }}" action="{{ route('app.menus.builder.destroy', [$item, $children]) }}" method="POST"
+                                                            <form id="delete-form-{{ $children->id }}" action="{{ route('menus.builder.destroy', [$item, $children]) }}" method="POST"
                                                                   class="d-none">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -127,9 +127,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
                             <div class="dd-handle my-3">
                                 <div>

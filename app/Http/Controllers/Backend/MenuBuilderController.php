@@ -18,9 +18,9 @@ class MenuBuilderController extends Controller
      */
     public function index(Menu $menu)
     {
-        Gate::authorize('app.menus.builder.index');
+        Gate::authorize('menus.builder.index');
 
-        return view('backend.menus.builder.index', [
+        return view('settings.menus.builder.index', [
             'menu' => $menu->load('items'),
         ]);
     }
@@ -32,9 +32,9 @@ class MenuBuilderController extends Controller
      */
     public function create(Menu $menu)
     {
-        Gate::authorize('app.menus.builder.create');
+        Gate::authorize('menus.builder.create');
 
-        return view('backend.menus.builder.form', [
+        return view('settings.menus.builder.form', [
             'menu' => $menu,
         ]);
     }
@@ -47,11 +47,11 @@ class MenuBuilderController extends Controller
      */
     public function store(StoreMenuBuilderRequest $request, Menu $menu)
     {
-        Gate::authorize('app.menus.builder.create');
+        Gate::authorize('menus.builder.create');
 
         $menu->items()->create($request->validated());
 
-        return redirect()->route('app.menus.builder.index', $menu)
+        return redirect()->route('menus.builder.index', $menu)
             ->with('success', 'Menu item created successfully.');
     }
 
@@ -63,7 +63,7 @@ class MenuBuilderController extends Controller
      */
     public function show($id)
     {
-        Gate::authorize('app.menus.builder.index');
+        Gate::authorize('menus.builder.index');
     }
 
     /**
@@ -74,9 +74,9 @@ class MenuBuilderController extends Controller
      */
     public function edit(Menu $menu, MenuItem $builder)
     {
-        Gate::authorize('app.menus.builder.edit');
+        Gate::authorize('menus.builder.edit');
 
-        return view('backend.menus.builder.form', [
+        return view('settings.menus.builder.form', [
             'menu' => $menu,
             'item' => $builder,
         ]);
@@ -104,7 +104,7 @@ class MenuBuilderController extends Controller
      */
     public function destroy($menuId, MenuItem $builder)
     {
-        Gate::authorize('app.menus.builder.destroy');
+        Gate::authorize('menus.builder.destroy');
 
         $builder->delete();
 
@@ -114,7 +114,7 @@ class MenuBuilderController extends Controller
 
     public function move(Request $request, Menu $menu)
     {
-        Gate::authorize('app.menus.builder.edit');
+        Gate::authorize('menus.builder.edit');
 
         $items = json_decode($request->get('order'));
 

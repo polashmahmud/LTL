@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Backend;
+namespace App\Http\Livewire\Menus;
 
-use App\Models\Menu;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use App\Models\Menu;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class MenuDataTable extends DataTableComponent
@@ -60,7 +60,7 @@ class MenuDataTable extends DataTableComponent
                 ->sortable(),
             Column::make("Name", "name")
                 ->sortable()
-            ->format(fn($value, $row, Column $column) => '<code class="text-red">' . $value . '</code>')
+                ->format(fn($value, $row, Column $column) => '<code class="text-red">' . $value . '</code>')
                 ->html(),
             Column::make("Description", "description")
                 ->sortable(),
@@ -70,7 +70,7 @@ class MenuDataTable extends DataTableComponent
                 ->html(),
             Column::make('Action')
                 ->label(function ($row, Column $column) {
-                    return view('backend.components.menus.action', ['row' => $row]);
+                    return view('settings.menus.partials.action', ['row' => $row]);
                 })
         ];
     }

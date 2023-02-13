@@ -7,12 +7,12 @@
             title="Menu Builder"
             :breadcrumbs="[
                 'Dashboard' => '#',
-                'Menus' => route('app.menus.index'),
+                'Menus' => route('menus.index'),
                 'Builder' => 'active',
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.menus.builder.create', $menu) }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('menus.builder.create', $menu) }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="plus" />
                     Add New menu item
                 </a>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body border-bottom py-3">
                             <div class="dd menu-builder">
-                                <x-backend.menu-builder :menu="$menu" />
+                                <x-menus.menu-builder :menu="$menu" />
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
     <script>
         $('.dd').nestable({ maxDepth: 2 })
             .on('change', function(e) {
-            $.post('{{ route('app.menus.builder.move', $menu) }}', {
+            $.post('{{ route('menus.builder.move', $menu) }}', {
                 order: JSON.stringify($('.dd').nestable('serialize')),
                 _token: '{{ csrf_token() }}'
             }, function(data) {

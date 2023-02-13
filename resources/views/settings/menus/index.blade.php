@@ -11,7 +11,7 @@
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.menus.create') }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('menus.create') }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="plus" />
                     Add New menu
                 </a>
@@ -27,7 +27,7 @@
                             <h3 class="card-title">Menus</h3>
                         </div>
                         <div class="card-body border-bottom py-3">
-                            <livewire:backend.menu-data-table />
+                            <livewire:menus.menu-data-table />
                         </div>
                     </div>
                 </div>
