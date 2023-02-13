@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-xl">
         <!-- Page title -->
-        <x-backend.page-headers
+        <x-page-headers
             title="Dashboard"
             :breadcrumbs="[
                 'Dashboard' => '#',
@@ -16,7 +16,7 @@
                     Add New user
                 </a>
             </div>
-        </x-backend.page-headers>
+        </x-page-headers>
     </div>
     <div class="page-body">
         <div class="container-xl">

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-xl">
         <!-- Page title -->
-        <x-backend.page-headers
+        <x-page-headers
             title="Menu Builder"
             :breadcrumbs="[
                 'Dashboard' => '#',
@@ -17,7 +17,7 @@
                     Add New menu item
                 </a>
             </div>
-        </x-backend.page-headers>
+        </x-page-headers>
     </div>
     <div class="page-body">
         <div class="container-xl">

@@ -1,23 +1,19 @@
 <?php
 
-namespace App\View\Components\Backend;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class PageHeaders extends Component
+class Sidebar extends Component
 {
-    public $title;
-    public $breadcrumbs;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $breadcrumbs = [])
+    public function __construct()
     {
-        $this->title = $title;
-        $this->breadcrumbs = $breadcrumbs;
+        //
     }
 
     /**
@@ -27,6 +23,9 @@ class PageHeaders extends Component
      */
     public function render()
     {
-        return view('components.backend.page-headers');
+        $menus = menu('backend');
+        return view('components.sidebar', [
+            'menus' => $menus
+        ]);
     }
 }

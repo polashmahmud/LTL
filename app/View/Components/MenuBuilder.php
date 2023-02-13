@@ -1,19 +1,21 @@
 <?php
 
-namespace App\View\Components\Backend;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Sidebar extends Component
+class MenuBuilder extends Component
 {
+    public $menu;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($menu = [])
     {
-        //
+        $this->menu = $menu;
     }
 
     /**
@@ -23,9 +25,6 @@ class Sidebar extends Component
      */
     public function render()
     {
-        $menus = menu('backend');
-        return view('components.backend.sidebar', [
-            'menus' => $menus
-        ]);
+        return view('components.backend.menu-builder');
     }
 }

@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
-            <x-backend.sidebar />
+            <x-sidebar />
         </div>
     </div>
 </aside>

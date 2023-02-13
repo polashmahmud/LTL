@@ -4,7 +4,7 @@
             <div class="mb-1">
                 <ol class="breadcrumb breadcrumb-alternate" aria-label="breadcrumbs">
                     @foreach($breadcrumbs as $key => $value)
-                    <li class="breadcrumb-item @if($value == 'active') active @endif"><a href="{{ $value == 'active' ? '#' : $value }}">{{ $key }}</a></li>
+                        <li class="breadcrumb-item @if($value == 'active') active @endif"><a href="{{ $value == 'active' ? '#' : $value }}">{{ $key }}</a></li>
                     @endforeach
                 </ol>
             </div>
