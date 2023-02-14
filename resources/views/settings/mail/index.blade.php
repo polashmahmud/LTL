@@ -10,7 +10,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Mailer <code>setting('mail_mailer')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_mailer\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" value="{{ old('mail_mailer', setting('mail_mailer')) }}"
                                class="form-control @error('mail_mailer') is-invalid @enderror" name="mail_mailer"
@@ -24,7 +35,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Port <code>setting('mail_port')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_port\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_port') is-invalid @enderror"
                                value="{{ old('mail_port', setting('mail_port')) }}" name="mail_port"
@@ -38,7 +60,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Password <code>setting('mail_password')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_password\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_password') is-invalid @enderror"
                                value="{{ old('mail_password', setting('mail_password')) }}" name="mail_password"
@@ -52,7 +85,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail From Address <code>setting('mail_from_address')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_from_address\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_from_address') is-invalid @enderror"
                                value="{{ old('mail_from_address', setting('mail_from_address')) }}"
@@ -68,7 +112,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Host <code>setting('mail_host')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_host\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_host') is-invalid @enderror"
                                value="{{ old('mail_host', setting('mail_host')) }}" name="mail_host"
@@ -82,7 +137,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Username <code>setting('mail_username')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_username\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_username') is-invalid @enderror"
                                value="{{ old('mail_username', setting('mail_username')) }}" name="mail_username"
@@ -96,7 +162,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail Encryption <code>setting('mail_encryption')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_encryption\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_encryption') is-invalid @enderror"
                                value="{{ old('mail_encryption', setting('mail_encryption')) }}" name="mail_encryption"
@@ -110,7 +187,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>Mail From Name <code>setting('mail_from_name')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy"/></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'mail_from_name\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" class="form-control @error('mail_from_name') is-invalid @enderror"
                                value="{{ old('mail_from_name', setting('mail_from_name')) }}" name="mail_from_name"
@@ -133,3 +221,4 @@
         </div>
     </form>
 @endsection
+
