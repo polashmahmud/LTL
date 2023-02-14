@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreRoleRequest;
 use App\Http\Requests\Backend\UpdateRoleRequest;
 use App\Models\Module;
 use App\Models\Role;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller

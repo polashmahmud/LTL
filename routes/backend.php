@@ -4,13 +4,10 @@ use App\Http\Controllers\Account\AccountController;
 use App\Http\Controllers\Account\EmailController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\PasswordController;
-use App\Http\Controllers\Backend\MenuBuilderController;
-use App\Http\Controllers\Backend\MenuController;
-use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Settings\MenuBuilderController;
+use App\Http\Controllers\Settings\MenuController;
+use App\Http\Controllers\Settings\RoleController;
 use Illuminate\Support\Facades\Route;
-
-
-
 
 
 // Menus
