@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Roles;
+namespace App\Http\Livewire\Settings\Roles;
 
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Role;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class RoleDataTable extends DataTableComponent

@@ -24,29 +24,6 @@ class PermissionSeeder extends Seeder
             'slug' => 'dashboard',
         ]);
 
-        // Role
-        $moduleAppRole = Module::updateOrCreate(['name' => 'Role Management']);
-        Permission::updateOrCreate([
-            'module_id' => $moduleAppRole->id,
-            'name' => 'Access Role',
-            'slug' => 'roles.index',
-        ]);
-        Permission::updateOrCreate([
-            'module_id' => $moduleAppRole->id,
-            'name' => 'Create Role',
-            'slug' => 'roles.create',
-        ]);
-        Permission::updateOrCreate([
-            'module_id' => $moduleAppRole->id,
-            'name' => 'Edit Role',
-            'slug' => 'roles.edit',
-        ]);
-        Permission::updateOrCreate([
-            'module_id' => $moduleAppRole->id,
-            'name' => 'Delete Role',
-            'slug' => 'roles.destroy',
-        ]);
-
         // User
         $moduleAppUser = Module::updateOrCreate(['name' => 'User Management']);
         Permission::updateOrCreate([
@@ -68,6 +45,29 @@ class PermissionSeeder extends Seeder
             'module_id' => $moduleAppUser->id,
             'name' => 'Delete User',
             'slug' => 'users.destroy',
+        ]);
+
+        // Settings -> Role
+        $moduleAppRole = Module::updateOrCreate(['name' => 'Role Management']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppRole->id,
+            'name' => 'Access Role',
+            'slug' => 'settings.roles.index',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppRole->id,
+            'name' => 'Create Role',
+            'slug' => 'settings.roles.create',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppRole->id,
+            'name' => 'Edit Role',
+            'slug' => 'settings.roles.edit',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppRole->id,
+            'name' => 'Delete Role',
+            'slug' => 'settings.roles.destroy',
         ]);
 
         // Menu

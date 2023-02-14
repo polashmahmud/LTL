@@ -116,7 +116,7 @@ class MenuSeeder extends Seeder
             'parent_id'  => 7,
             'order'      => 8,
             'title'      => 'Roles',
-            'url'        => '/roles',
+            'url'        => '/settings/roles',
             'target'     => '_self',
             'icon_class' => null,
         ]);
