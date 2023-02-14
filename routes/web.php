@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', HomeController::class);
 
 Route::get('/dashboard', DashboardController::class);

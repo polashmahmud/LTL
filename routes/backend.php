@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\RoleController;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+
 
 Route::resource('roles', RoleController::class)->except('show');
 
