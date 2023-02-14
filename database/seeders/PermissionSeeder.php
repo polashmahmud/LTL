@@ -70,6 +70,34 @@ class PermissionSeeder extends Seeder
             'slug' => 'settings.roles.destroy',
         ]);
 
+        // Settings -> Backup
+        $moduleBackup = Module::updateOrCreate(['name' => 'Backup Management']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleBackup->id,
+            'name' => 'Access Backup',
+            'slug' => 'settings.backups.index',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleBackup->id,
+            'name' => 'Create Backup',
+            'slug' => 'settings.backups.create',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleBackup->id,
+            'name' => 'Edit Backup',
+            'slug' => 'settings.backups.edit',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleBackup->id,
+            'name' => 'Delete Backup',
+            'slug' => 'settings.backups.destroy',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleBackup->id,
+            'name' => 'Download Backup',
+            'slug' => 'settings.backups.download',
+        ]);
+
         // Menu
         $moduleAppMenu = Module::updateOrCreate(['name' => 'Menu Management']);
         Permission::updateOrCreate([

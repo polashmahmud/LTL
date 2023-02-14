@@ -4,6 +4,7 @@ use App\Http\Controllers\Account\AccountController;
 use App\Http\Controllers\Account\EmailController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\PasswordController;
+use App\Http\Controllers\Settings\BackupController;
 use App\Http\Controllers\Settings\MenuBuilderController;
 use App\Http\Controllers\Settings\MenuController;
 use App\Http\Controllers\Settings\RoleController;
@@ -30,4 +31,5 @@ Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
 // Settings
 Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
     Route::resource('roles', RoleController::class)->except('show');
+    Route::resource('backups', BackupController::class)->only('index', 'store', 'destroy');
 });

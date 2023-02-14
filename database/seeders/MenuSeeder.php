@@ -120,5 +120,14 @@ class MenuSeeder extends Seeder
             'target'     => '_self',
             'icon_class' => null,
         ]);
+        $menu->items()->create([
+            'type'       => 'item',
+            'parent_id'  => 7,
+            'order'      => 9,
+            'title'      => 'Backups',
+            'url'        => '/settings/backups',
+            'target'     => '_self',
+            'icon_class' => null,
+        ]);
     }
 }
