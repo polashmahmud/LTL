@@ -30,7 +30,7 @@ class BackupController extends Controller
                 'file_name' => str_replace(config('backup.backup.name') . '/', '', $v),
                 'file_size' => $this->bytesToHuman($disk->size($v)),
                 'last_modified' => Carbon::parse($disk->lastModified($v))->diffForHumans(),
-                'download_link' => route('backups.download', ['file_name' => str_replace(config('backup.backup.name') . '/', '', $v)]),
+                'download_link' => route('settings.backups.download', ['file_name' => str_replace(config('backup.backup.name') . '/', '', $v)]),
             ];
         }
 

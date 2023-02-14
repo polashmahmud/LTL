@@ -32,4 +32,5 @@ Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
 Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
     Route::resource('roles', RoleController::class)->except('show');
     Route::resource('backups', BackupController::class)->only('index', 'store', 'destroy');
+    Route::get('backups/download/{file_name}', [BackupController::class, 'download'])->name('backups.download');
 });
