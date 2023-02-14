@@ -10,7 +10,7 @@
             </li>
         @else
             @if($menu->children->isEmpty())
-                <li class="nav-item">
+                <li class="nav-item {{ activeMenu(substr($menu->url, 1)) }}">
                     <a class="nav-link" target="{{ $menu->target }}" href="{{ $menu->url }}">
                         <x-tabler :icon="$menu->icon_class" w="20" h="20" style="margin-right: 5px"/>
                         <span class="nav-link-title">
@@ -39,7 +39,7 @@
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 @foreach($menu->children as $child)
-                                <a class="dropdown-item" target="{{ $child->target }}" href="{{ $child->url }}">
+                                <a class="dropdown-item {{ activeMenu(substr($child->url, 1)) }}" target="{{ $child->target }}" href="{{ $child->url }}">
                                     {{ $child->title }}
                                 </a>
                                 @endforeach
