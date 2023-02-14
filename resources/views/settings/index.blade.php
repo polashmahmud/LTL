@@ -10,7 +10,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>App name <code>setting('app_name')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy" /></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'app_name\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" value="{{ old('app_name', setting('app_name')) }}" class="form-control @error('app_name') is-invalid @enderror" name="app_name" placeholder="ex: App Name">
                         @error('app_name')
@@ -24,7 +35,18 @@
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between align-items-center">
                             <span>App description <code>setting('app_description')</code></span>
-                            <span class="cursor-pointer"><x-tabler icon="copy" /></span>
+                            <div
+                                class="cursor-pointer"
+                                x-data="{ copied: false, copyText: 'setting(\'app_description\')' }"
+                                x-on:click="
+                                    navigator.clipboard.writeText(copyText);
+                                    copied = true;
+                                    setTimeout(() => { copied = false }, 1000);
+                                "
+                            >
+                                <x-tabler x-show="!copied" icon="copy"/>
+                                <x-tabler x-show="copied" icon="clipboard-check"/>
+                            </div>
                         </label>
                         <input type="text" value="{{ old('app_description', setting('app_description')) }}" class="form-control @error('app_description') is-invalid @enderror" name="app_description" placeholder="ex: App Description">
                         @error('app_description')
