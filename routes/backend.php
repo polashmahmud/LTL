@@ -5,10 +5,13 @@ use App\Http\Controllers\Account\EmailController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\PasswordController;
 use App\Http\Controllers\Settings\BackupController;
+use App\Http\Controllers\Settings\GoogleController;
+use App\Http\Controllers\Settings\MailController;
 use App\Http\Controllers\Settings\MenuBuilderController;
 use App\Http\Controllers\Settings\MenuController;
 use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Settings\SettingController;
+use App\Http\Controllers\Settings\SMSController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,6 +35,13 @@ Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
 // Settings
 Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
     Route::get('/', [SettingController::class, 'index'])->name('index');
+    Route::post('/', [SettingController::class, 'store'])->name('store');
+    Route::get('mail', [MailController::class, 'index'])->name('mail.index');
+    Route::post('mail', [MailController::class, 'store'])->name('mail.store');
+    Route::get('sms', [SMSController::class, 'index'])->name('sms.index');
+    Route::post('sms', [SMSController::class, 'store'])->name('sms.store');
+    Route::post('google', [GoogleController::class, 'index'])->name('google.index');
+    Route::post('google', [GoogleController::class, 'store'])->name('google.store');
     Route::resource('roles', RoleController::class)->except('show');
     Route::resource('backups', BackupController::class)->only('index', 'store', 'destroy');
     Route::get('backups/download/{file_name}', [BackupController::class, 'download'])->name('backups.download');

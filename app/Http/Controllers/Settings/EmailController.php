@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Settings;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class EmailController extends Controller
 {
     public function index()
     {
-        return view('settings.index');
+
     }
 
     public function store()
