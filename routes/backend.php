@@ -8,6 +8,7 @@ use App\Http\Controllers\Settings\BackupController;
 use App\Http\Controllers\Settings\MenuBuilderController;
 use App\Http\Controllers\Settings\MenuController;
 use App\Http\Controllers\Settings\RoleController;
+use App\Http\Controllers\Settings\SettingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,6 +31,7 @@ Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
 
 // Settings
 Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
+    Route::get('/', [SettingController::class, 'index'])->name('index');
     Route::resource('roles', RoleController::class)->except('show');
     Route::resource('backups', BackupController::class)->only('index', 'store', 'destroy');
     Route::get('backups/download/{file_name}', [BackupController::class, 'download'])->name('backups.download');

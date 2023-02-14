@@ -95,8 +95,8 @@ class MenuSeeder extends Seeder
             'type'       => 'item',
             'parent_id'  => 7,
             'order'      => 8,
-            'title'      => 'General Settings',
-            'url'        => '/settings/general',
+            'title'      => 'Settings',
+            'url'        => '/settings',
             'target'     => '_self',
             'icon_class' => null,
         ]);
