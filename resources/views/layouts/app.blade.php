@@ -28,8 +28,8 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body  class="layout-fluid">
-<div class="page" id="page">
+<body>
+<div class="page" id="app">
     <!-- Navbar -->
     @include('layouts.partials._top-navigation')
     @include('layouts.partials._navigation')
