@@ -1,7 +1,7 @@
 <ul class="navbar-nav">
     @foreach($menus as $menu)
         @if($menu->children->isEmpty())
-            <li class="nav-item {{ activeMenu(substr($menu->url, 1)) }}">
+            <li class="nav-item {{ activeMenu($menu->url) }}">
                 <a class="nav-link"
                    target="{{ $menu->target }}"
                    href="{{ $menu->url }}">
@@ -12,7 +12,7 @@
                 </a>
             </li>
         @else
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown {{ activeParentMenu($menu) }}">
                 <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                    role="button" aria-expanded="false">
                     <x-tabler :icon="$menu->icon_class" h="22" w="22" style="color: #6c7a91; margin-right: 5px"/>
@@ -22,7 +22,7 @@
                 </a>
                 <div class="dropdown-menu">
                     @foreach($menu->children as $child)
-                    <a class="dropdown-item {{ activeMenu(substr($child->url, 1)) }}"
+                    <a class="dropdown-item {{ activeMenu($child->url) }}"
                        href="{{ $child->url }}" target="{{ $child->target }}"
                        rel="noopener">
                         <!-- Download SVG icon from http://tabler-icons.io/i/heart -->

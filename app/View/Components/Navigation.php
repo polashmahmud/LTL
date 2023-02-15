@@ -23,7 +23,7 @@ class Navigation extends Component
      */
     public function render()
     {
-        $menus = menu('backend');
+        $menus = menu('main');
         return view('components.navigation', [
             'menus' => $menus
         ]);

@@ -16,8 +16,8 @@ class MenuSeeder extends Seeder
     public function run()
     {
         $menu = Menu::create([
-            'name'        => 'backend',
-            'description' => 'Backend Menu',
+            'name'        => 'main',
+            'description' => 'Main Menu',
             'deletable'   => false,
         ]);
 
@@ -32,19 +32,9 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'divider',
-            'parent_id'  => null,
-            'order'      => 2,
-            'title'      => 'Pages',
-            'url'        => null,
-            'target'     => '_self',
-            'icon_class' => null,
-        ]);
-
-        $menu->items()->create([
             'type'       => 'item',
             'parent_id'  => null,
-            'order'      => 3,
+            'order'      => 2,
             'title'      => 'Users',
             'url'        => null,
             'target'     => '_self',
@@ -53,8 +43,8 @@ class MenuSeeder extends Seeder
 
         $menu->items()->create([
             'type'       => 'item',
-            'parent_id'  => 3,
-            'order'      => 4,
+            'parent_id'  => 2,
+            'order'      => 3,
             'title'      => 'All Users',
             'url'        => '/users',
             'target'     => '_self',
@@ -63,8 +53,8 @@ class MenuSeeder extends Seeder
 
         $menu->items()->create([
             'type'       => 'item',
-            'parent_id'  => 3,
-            'order'      => 5,
+            'parent_id'  => 2,
+            'order'      => 4,
             'title'      => 'Create User',
             'url'        => '/users/create',
             'target'     => '_self',
@@ -72,62 +62,13 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'divider',
-            'parent_id'  => null,
-            'order'      => 6,
-            'title'      => 'Settings',
-            'url'        => null,
-            'target'     => '_self',
-            'icon_class' => null,
-        ]);
-
-        $menu->items()->create([
             'type'       => 'item',
             'parent_id'  => null,
-            'order'      => 7,
-            'title'      => 'Settings',
-            'url'        => null,
-            'target'     => '_self',
-            'icon_class' => 'tool',
-        ]);
-
-        $menu->items()->create([
-            'type'       => 'item',
-            'parent_id'  => 7,
-            'order'      => 8,
+            'order'      => 5,
             'title'      => 'Settings',
             'url'        => '/settings',
             'target'     => '_self',
-            'icon_class' => null,
-        ]);
-
-        $menu->items()->create([
-            'type'       => 'item',
-            'parent_id'  => 7,
-            'order'      => 8,
-            'title'      => 'Menus',
-            'url'        => '/menus',
-            'target'     => '_self',
-            'icon_class' => null,
-        ]);
-
-        $menu->items()->create([
-            'type'       => 'item',
-            'parent_id'  => 7,
-            'order'      => 8,
-            'title'      => 'Roles',
-            'url'        => '/settings/roles',
-            'target'     => '_self',
-            'icon_class' => null,
-        ]);
-        $menu->items()->create([
-            'type'       => 'item',
-            'parent_id'  => 7,
-            'order'      => 9,
-            'title'      => 'Backups',
-            'url'        => '/settings/backups',
-            'target'     => '_self',
-            'icon_class' => null,
+            'icon_class' => 'tool',
         ]);
     }
 }
