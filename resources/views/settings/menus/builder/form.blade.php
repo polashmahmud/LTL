@@ -7,12 +7,12 @@
             title="Menu item"
             :breadcrumbs="[
                 'Dashboard' => '#',
-                'Menus' => route('app.menus.index'),
+                'Menus' => route('menus.index'),
                 isset($item) ? 'Edit' : 'Create' => 'active',
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.menus.builder.index', $menu) }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('menus.builder.index', $menu) }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="arrow-back"/>
                     Back
                 </a>
@@ -24,7 +24,7 @@
             <div class="row row-cards">
                 <div class="col-12">
                     <form method="POST"
-                          action="{{ isset($item) ? route('app.menus.builder.update', [$menu, $item]) : route('app.menus.builder.store', $menu) }}">
+                          action="{{ isset($item) ? route('menus.builder.update', [$menu, $item]) : route('menus.builder.store', $menu) }}">
                         @csrf
                         @if(isset($item))
                             @method('PUT')
