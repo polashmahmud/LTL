@@ -14,14 +14,6 @@ use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Settings\SMSController;
 use Illuminate\Support\Facades\Route;
 
-
-// Menus
-Route::resource('menus', MenuController::class)->except('show');
-Route::group(['as' => 'menus.', 'prefix' => 'menus/{menu}'], function () {
-    Route::resource('builder', MenuBuilderController::class);
-    Route::post('builder/move', [MenuBuilderController::class, 'move'])->name('builder.move');
-});
-
 // Accounts
 Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
     Route::get('/', [AccountController::class, 'index'])->name('index');
@@ -45,4 +37,10 @@ Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
     Route::resource('roles', RoleController::class)->except('show');
     Route::resource('backups', BackupController::class)->only('index', 'store', 'destroy');
     Route::get('backups/download/{file_name}', [BackupController::class, 'download'])->name('backups.download');
+    // Menus
+    Route::resource('menus', MenuController::class)->except('show');
+    Route::group(['as' => 'menus.', 'prefix' => 'menus/{menu}'], function () {
+        Route::resource('builder', MenuBuilderController::class);
+        Route::post('builder/move', [MenuBuilderController::class, 'move'])->name('builder.move');
+    });
 });

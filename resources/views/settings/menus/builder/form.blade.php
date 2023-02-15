@@ -1,30 +1,20 @@
-@extends('layouts.backend.app')
+@extends('settings.layouts.default')
 
-@section('content')
+@section('settings-content')
     <div class="container-xl">
-        <!-- Page title -->
-        <x-page-headers
-            title="Menu item"
-            :breadcrumbs="[
-                'Dashboard' => '#',
-                'Menus' => route('app.menus.index'),
-                isset($item) ? 'Edit' : 'Create' => 'active',
-            ]"
-        >
-            <div class="btn-list">
-                <a href="{{ route('app.menus.builder.index', $menu) }}" class="btn d-none d-md-inline-flex">
-                    <x-tabler icon="arrow-back"/>
-                    Back
-                </a>
-            </div>
-        </x-page-headers>
+        <div class="mt-3 d-flex justify-content-end">
+            <a href="{{ route('settings.menus.builder.index', $menu) }}" class="btn d-none d-md-inline-flex">
+                <x-tabler icon="arrow-back"/>
+                Back
+            </a>
+        </div>
     </div>
     <div class="page-body">
         <div class="container-xl">
             <div class="row row-cards">
                 <div class="col-12">
                     <form method="POST"
-                          action="{{ isset($item) ? route('app.menus.builder.update', [$menu, $item]) : route('app.menus.builder.store', $menu) }}">
+                          action="{{ isset($item) ? route('settings.menus.builder.update', [$menu, $item]) : route('settings.menus.builder.store', $menu) }}">
                         @csrf
                         @if(isset($item))
                             @method('PUT')
@@ -43,12 +33,14 @@
                                     <div>
                                         <label class="form-check form-check-inline">
                                             <input class="form-check-input" x-on:click="item = true" name="type"
-                                                   value="item" type="radio" @isset($item) @if($item->type == 'item') checked @endif @endisset>
+                                                   value="item" type="radio"
+                                                   @isset($item) @if($item->type == 'item') checked @endif @endisset>
                                             <span class="form-check-label">Item</span>
                                         </label>
                                         <label class="form-check form-check-inline">
                                             <input class="form-check-input" x-on:click="item = false" name="type"
-                                                   value="divider" type="radio" @isset($item) @if($item->type == 'divider') checked @endif @endisset>
+                                                   value="divider" type="radio"
+                                                   @isset($item) @if($item->type == 'divider') checked @endif @endisset>
                                             <span class="form-check-label">Divider</span>
                                         </label>
                                     </div>

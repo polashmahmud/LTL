@@ -51,7 +51,7 @@ class MenuBuilderController extends Controller
 
         $menu->items()->create($request->validated());
 
-        return redirect()->route('menus.builder.index', $menu)
+        return redirect()->route('settings.menus.builder.index', $menu)
             ->with('success', 'Menu item created successfully.');
     }
 

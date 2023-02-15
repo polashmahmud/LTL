@@ -1,4 +1,4 @@
-@extends('layouts.frontend.app')
+@extends('layouts.guest')
 
 @section('content')
     <div class="page page-center">
