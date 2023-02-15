@@ -34,6 +34,7 @@
     @include('layouts.partials._top-navigation')
     @include('layouts.partials._navigation')
     <div class="page-wrapper">
+        @include('layouts.partials.flash-message')
         @yield('content')
         @include('layouts.partials._footer')
     </div>

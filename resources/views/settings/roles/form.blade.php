@@ -1,22 +1,13 @@
-@extends('layouts.app')
+@extends('settings.layouts.default')
 
-@section('content')
+@section('settings-content')
     <div class="container-xl">
-        <!-- Page title -->
-        <x-page-headers
-            title="Dashboard"
-            :breadcrumbs="[
-                'Dashboard' => '#',
-                'Roles' => 'active',
-            ]"
-        >
-            <div class="btn-list">
-                <a href="{{ route('settings.roles.index') }}" class="btn d-none d-md-inline-flex">
-                    <x-tabler icon="arrow-back"/>
-                    Back
-                </a>
-            </div>
-        </x-page-headers>
+        <div class="mt-3 d-flex justify-content-end">
+            <a href="{{ route('settings.roles.index') }}" class="btn d-none d-md-inline-flex">
+                <x-tabler icon="arrow-back"/>
+                Back
+            </a>
+        </div>
     </div>
     <div class="page-body">
         <div class="container-xl">
@@ -54,7 +45,8 @@
                                         @foreach($chunks as $k => $module)
                                             <div class="col-md-6 mb-3">
                                                 <div class="card">
-                                                    <div class="card-status-top bg-primary @error('permissions') bg-danger @enderror"></div>
+                                                    <div
+                                                        class="card-status-top bg-primary @error('permissions') bg-danger @enderror"></div>
                                                     <div class="card-body">
                                                         <h3 class="card-title"><input name="checked"
                                                                                       class="form-check-input"
@@ -67,7 +59,7 @@
                                                                        value="{{ $permission->id }}"
                                                                        class="form-check-input"
                                                                        type="checkbox"
-                                                                        @if(isset($role) && $role->hasPermissionTo($permission->slug)) checked @endif
+                                                                       @if(isset($role) && $role->hasPermissionTo($permission->slug)) checked @endif
                                                                 >
                                                                 <span
                                                                     class="form-check-label">{{ $permission->name }}</span>
