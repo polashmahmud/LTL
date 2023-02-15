@@ -20,6 +20,6 @@ Auth::routes();
 
 Route::get('/', HomeController::class);
 
-Route::get('/dashboard', DashboardController::class);
+Route::get('/dashboard', DashboardController::class)->name('dashboard');
 Route::resource('users', UserController::class);
 
