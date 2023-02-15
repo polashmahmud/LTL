@@ -1,15 +1,13 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('name', 'Laravel') }}</title>
-
     <!-- CSS files -->
     <link href="{{ asset('backend/dist/css/tabler.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('backend/dist/css/tabler-flags.min.css') }}" rel="stylesheet"/>
@@ -26,26 +24,24 @@
         }
     </style>
 
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @stack('styles')
     @livewireStyles
 </head>
-<body>
-<div id="app" class="wrapper">
-    @include('layouts.backend.partials.sidebar')
-    @include('layouts.backend.partials.header')
-
+<body  class="layout-fluid">
+<div class="page" id="page">
+    <!-- Navbar -->
+    @include('layouts.partials._top-navigation')
+    @include('layouts.partials._navigation')
     <div class="page-wrapper">
-        @include('layouts.backend.partials.flash-message')
         @yield('content')
-        @include('layouts.backend.partials.footer')
+        @include('layouts.partials._footer')
     </div>
 </div>
+
 <!-- Tabler Core -->
 <script src="{{ asset('backend/dist/js/tabler.min.js') }}"></script>
 <script src="{{ asset('backend/dist/js/demo.min.js') }}"></script>
-
 @stack('scripts')
 @livewireScripts
 </body>
