@@ -10,5 +10,7 @@
         <a href="{{ route('settings.sms.index') }}"
            class="list-group-item list-group-item-action d-flex align-items-center {{ request()->is('*/sms') ? 'active' : '' }}">SMS
             Settings</a>
+        <a href="{{ route('settings.backups.index') }}"
+           class="list-group-item list-group-item-action d-flex align-items-center {{ request()->is('*/backups') ? 'active' : '' }}">Backups</a>
     </div>
 </div>
