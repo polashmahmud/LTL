@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $title)
+
 @section('content')
     <!-- Page header -->
     <div class="page-header d-print-none">

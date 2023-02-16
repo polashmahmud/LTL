@@ -21,6 +21,9 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         Gate::authorize('dashboard');
-        return view('dashboard');
+        return view('dashboard', [
+            'title' => 'Dashboard',
+
+        ]);
     }
 }
