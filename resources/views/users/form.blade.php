@@ -7,12 +7,12 @@
             title="User"
             :breadcrumbs="[
                 'Dashboard' => '#',
-                'Users' => route('app.users.index'),
+                'Users' => route('users.index'),
                 isset($user) ? 'Edit' : 'Create' => 'active',
             ]"
         >
             <div class="btn-list">
-                <a href="{{ route('app.users.index') }}" class="btn d-none d-md-inline-flex">
+                <a href="{{ route('users.index') }}" class="btn d-none d-md-inline-flex">
                     <x-tabler icon="arrow-back"/>
                     Back
                 </a>
@@ -24,7 +24,7 @@
             <div class="row row-cards">
                 <div class="col-12">
                     <form method="POST"
-                          action="{{ isset($user) ? route('app.users.update', $user) : route('app.users.store') }}">
+                          action="{{ isset($user) ? route('users.update', $user) : route('users.store') }}">
                         @csrf
                         @if(isset($user))
                             @method('PUT')
