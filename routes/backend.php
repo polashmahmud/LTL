@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Accounts
 Route::group(['as' => 'account.', 'prefix' => 'account'], function () {
     Route::get('/', [AccountController::class, 'index'])->name('index');
+    Route::post('/', [AccountController::class, 'store'])->name('store');
+    Route::delete('/', [AccountController::class, 'destroy'])->name('destroy');
     Route::get('/password', [PasswordController::class, 'index'])->name('password.index');
     Route::post('/password', [PasswordController::class, 'store'])->name('password.store');
     Route::get('/email', [EmailController::class, 'index'])->name('email.index');

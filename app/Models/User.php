@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -42,6 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function avatar()
+    {
+        if ($this->avatar) {
+            return config('app.url') . '/storage/avatar/' . $this->avatar;
+        } else {
+            return null;
+        }
+    }
 
     public function role()
     {
