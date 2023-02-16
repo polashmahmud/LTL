@@ -22,9 +22,10 @@ class SettingController extends Controller
             );
 
             if ($key == 'app_name') {
+                $app_name = "'" . $value . "'";
                 $envFile = app()->environmentFilePath();
                 $str = file_get_contents($envFile);
-                $str = preg_replace("/APP_NAME=(.*)/", "APP_NAME=" . $value, $str);
+                $str = preg_replace("/APP_NAME=(.*)/", "APP_NAME=" . $app_name, $str);
                 $fp = fopen($envFile, "w");
                 fwrite($fp, $str);
                 fclose($fp);

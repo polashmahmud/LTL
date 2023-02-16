@@ -1,5 +1,7 @@
 @extends('settings.layouts.default')
 
+@section('title', 'General Setting')
+
 @section('settings-content')
     <form action="{{ route('settings.store') }}" method="POST">
         @csrf
