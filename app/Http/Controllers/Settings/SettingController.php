@@ -17,11 +17,23 @@ class SettingController extends Controller
     public function store(StoreSettingRequest $request)
     {
         foreach ($request->except('_token') as $key => $value) {
+            if ($request->hasFile($key)) {
+                $image = $request->file($key);
+                $imageName = $image->getClientOriginalName();
+                $imageNewName = explode('.', $imageName)[0];
+                $fileExtension = time() . '.' . $imageNewName . '.' . $image->getClientOriginalExtension();
+                if (!file_exists(storage_path('app/public/settings'))) {
+                    mkdir(storage_path('app/public/settings'), 0777, true);
+                }
+                $image->move(storage_path('app/public/settings'), $fileExtension);
+                $value = env('APP_URL') . '/storage/settings/' . $fileExtension;
+            }
+
             Setting::updateOrCreate(
                 ['key' => $key], ['value' => $value]
             );
 
-            if ($key == 'app_name') {
+            if ($key == 'app_name' && $value != env('APP_NAME')) {
                 $app_name = "'" . $value . "'";
                 $envFile = app()->environmentFilePath();
                 $str = file_get_contents($envFile);

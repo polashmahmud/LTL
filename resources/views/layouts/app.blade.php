@@ -28,7 +28,7 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body class="">
+<body class="{{ setting('layout') }}">
 <script src="{{ asset('backend/dist/js/demo-theme.min.js') }}"></script>
 <div class="page" id="app">
     <!-- Navbar -->
