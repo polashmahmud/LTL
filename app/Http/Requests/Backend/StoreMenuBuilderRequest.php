@@ -24,7 +24,6 @@ class StoreMenuBuilderRequest extends FormRequest
     public function rules()
     {
         return [
-            'type'          => 'required|string',
             'title'         => 'nullable|string',
             'url'           => 'nullable|string',
             'target'        => 'nullable|string',

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
-            $table->enum('type', ['item', 'divider'])->default('item');
             $table->integer('parent_id')->nullable();
             $table->integer('order')->nullable();
             $table->string('title')->nullable();

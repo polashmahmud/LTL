@@ -103,22 +103,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Access Menu',
-            'slug' => 'menus.index',
+            'slug' => 'settings.menus.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Create Menu',
-            'slug' => 'menus.create',
+            'slug' => 'settings.menus.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Edit Menu',
-            'slug' => 'menus.edit',
+            'slug' => 'settings.menus.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Delete Menu',
-            'slug' => 'menus.destroy',
+            'slug' => 'settings.menus.destroy',
         ]);
 
         // Menu items
@@ -126,22 +126,22 @@ class PermissionSeeder extends Seeder
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Access Menu builder',
-            'slug' => 'menus.builder.index',
+            'slug' => 'settings.menus.builder.index',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Create Menu builder',
-            'slug' => 'menus.builder.create',
+            'slug' => 'settings.menus.builder.create',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Edit Menu builder',
-            'slug' => 'menus.builder.edit',
+            'slug' => 'settings.menus.builder.edit',
         ]);
         Permission::updateOrCreate([
             'module_id' => $moduleAppMenu->id,
             'name' => 'Delete Menu builder',
-            'slug' => 'menus.builder.destroy',
+            'slug' => 'settings.menus.builder.destroy',
         ]);
     }
 }

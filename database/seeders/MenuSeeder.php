@@ -22,7 +22,6 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'item',
             'parent_id'  => null,
             'order'      => 1,
             'title'      => 'Dashboard',
@@ -32,7 +31,6 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'item',
             'parent_id'  => null,
             'order'      => 2,
             'title'      => 'Users',
@@ -42,7 +40,6 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'item',
             'parent_id'  => 2,
             'order'      => 3,
             'title'      => 'All Users',
@@ -52,7 +49,6 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'item',
             'parent_id'  => 2,
             'order'      => 4,
             'title'      => 'Create User',
@@ -62,7 +58,6 @@ class MenuSeeder extends Seeder
         ]);
 
         $menu->items()->create([
-            'type'       => 'item',
             'parent_id'  => null,
             'order'      => 5,
             'title'      => 'Settings',
