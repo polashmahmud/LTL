@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Settings\StoreMenuBuilderRequest;
+use App\Http\Requests\Settings\UpdateMenuBuilderRequest;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Illuminate\Http\Request;
@@ -87,13 +88,16 @@ class MenuBuilderController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateMenuBuilderRequest $request, Menu $menu, MenuItem $builder)
     {
-        dd('update');
         Gate::authorize('settings.menus.builder.edit');
-        //
+
+        $builder->update($request->validated());
+
+        return redirect()->route('settings.menus.builder.index', $menu)
+            ->with('success', 'Menu item updated successfully.');
     }
 
     /**
