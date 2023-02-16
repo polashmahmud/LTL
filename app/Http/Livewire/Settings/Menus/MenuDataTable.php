@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Menus;
+namespace App\Http\Livewire\Settings\Menus;
 
+use App\Models\Menu;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Menu;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class MenuDataTable extends DataTableComponent

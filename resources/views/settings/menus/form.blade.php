@@ -3,7 +3,7 @@
 @section('settings-content')
     <div class="container-xl">
         <div class="mt-3 d-flex justify-content-end">
-            <a href="{{ route('settings.menus.index') }}" class="btn d-none d-md-inline-flex">
+            <a href="{{ route('settings.menus.index') }}" class="btn btn-ghost-secondary">
                 <x-tabler icon="arrow-back"/>
                 Back
             </a>
@@ -24,11 +24,21 @@
                         <div class="mb-3">
                             <label class="form-label">Menu name</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                   value="{{ $menu->name ?? old('name') }}" name="name" placeholder="Role name">
+                                   value="{{ $menu->name ?? old('name') }}" name="name" placeholder="Menu name">
                             @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Menu Description</label>
+                            <input type="text" class="form-control @error('description') is-invalid @enderror"
+                                   value="{{ $menu->description ?? old('description') }}" name="description" placeholder="Menu details">
+                            @error('description')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="d-flex">
                             <button type="submit" class="btn d-none d-md-inline-flex ms-auto">
                                 <x-tabler icon="device-floppy"/>

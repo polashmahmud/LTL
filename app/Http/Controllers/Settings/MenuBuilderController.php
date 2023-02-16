@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\StoreMenuBuilderRequest;
+use App\Http\Requests\Settings\StoreMenuBuilderRequest;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Illuminate\Http\Request;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Backend;
+namespace App\Http\Requests\Settings;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateMenuRequest extends FormRequest
+class StoreMenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateMenuRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateMenuRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'        => 'required|string|max:255|unique:menus,name',
+            'description' => 'nullable|string|max:255',
         ];
     }
 }

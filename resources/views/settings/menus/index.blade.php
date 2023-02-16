@@ -13,7 +13,7 @@
         <div class="container-xl">
             <div class="row row-cards">
                 <div class="col-12">
-                    <livewire:menus.menu-data-table/>
+                    <livewire:settings.menus.menu-data-table/>
                 </div>
             </div>
         </div>

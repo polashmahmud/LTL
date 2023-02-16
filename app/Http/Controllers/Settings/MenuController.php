@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\StoreMenuRequest;
+use App\Http\Requests\Settings\StoreMenuRequest;
+use App\Http\Requests\Settings\UpdateMenuRequest;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,7 +18,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        Gate::authorize('menus.index');
+        Gate::authorize('settings.menus.index');
 
         $menus = Menu::latest('id')->get();
 
@@ -31,7 +32,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        Gate::authorize('menus.create');
+        Gate::authorize('settings.menus.create');
 
         return view('settings.menus.form');
     }
@@ -44,7 +45,7 @@ class MenuController extends Controller
      */
     public function store(StoreMenuRequest $request)
     {
-        Gate::authorize('menus.create');
+        Gate::authorize('settings.menus.create');
 
         Menu::create($request->validated());
 
@@ -59,7 +60,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        Gate::authorize('menus.index');
+        Gate::authorize('settings.menus.index');
         //
     }
 
@@ -67,12 +68,13 @@ class MenuController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Menu $menu)
     {
-        Gate::authorize('menus.edit');
-        //
+        Gate::authorize('settings.menus.edit');
+
+        return view('settings.menus.form', compact('menu'));
     }
 
     /**
@@ -80,23 +82,33 @@ class MenuController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Menu $menu)
+    public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        Gate::authorize('menus.edit');
-        //
+        Gate::authorize('settings.menus.edit');
+
+        $menu->update($request->validated());
+
+        return redirect()->route('settings.menus.index')->with('success', 'Menu updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Menu $menu)
     {
-        Gate::authorize('menus.destroy');
-        //
+        Gate::authorize('settings.menus.destroy');
+
+        if (!$menu->deletable) {
+            return redirect()->route('settings.menus.index')->with('error', 'Menu is not deletable.');
+        }
+
+        $menu->delete();
+
+        return redirect()->route('settings.menus.index')->with('success', 'Menu deleted successfully.');
     }
 }
