@@ -28,7 +28,8 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body>
+<body class="">
+<script src="{{ asset('backend/dist/js/demo-theme.min.js') }}"></script>
 <div class="page" id="app">
     <!-- Navbar -->
     @include('layouts.partials._top-navigation')
