@@ -18,5 +18,7 @@
            class="list-group-item list-group-item-action d-flex align-items-center {{ request()->is('*/roles') ? 'active' : '' }}">Role</a>
         <a href="{{ route('settings.backups.index') }}"
            class="list-group-item list-group-item-action d-flex align-items-center {{ request()->is('*/backups') ? 'active' : '' }}">Backups</a>
+        <a href="{{ route('settings.crud-generator.index') }}"
+           class="list-group-item list-group-item-action d-flex align-items-center {{ request()->is('*/crud-generator') ? 'active' : '' }}">CRUD Generator</a>
     </div>
 </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Account\EmailController;
 use App\Http\Controllers\Account\NotificationController;
 use App\Http\Controllers\Account\PasswordController;
 use App\Http\Controllers\Settings\BackupController;
+use App\Http\Controllers\Settings\CrudGeneratorController;
 use App\Http\Controllers\Settings\GoogleController;
 use App\Http\Controllers\Settings\MailController;
 use App\Http\Controllers\Settings\MenuBuilderController;
@@ -55,4 +56,7 @@ Route::group(['as' => 'settings.', 'prefix' => 'settings'], function () {
         Route::resource('builder', MenuBuilderController::class);
         Route::post('builder/move', [MenuBuilderController::class, 'move'])->name('builder.move');
     });
+
+    // CRUD Generator
+    Route::get('crud-generator', [CrudGeneratorController::class, 'index'])->name('crud-generator.index');
 });
