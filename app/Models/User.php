@@ -11,7 +11,7 @@ use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Searchable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -61,11 +61,5 @@ class User extends Authenticatable
     public function hasPermission(Permission $permission)
     {
         return $this->role->permissions->contains($permission);
-    }
-
-    public function toSearchableArray()
-    {
-        $array = ['id' => $this->id, 'name' => $this->name, 'email' => $this->email];
-        return $array;
     }
 }
